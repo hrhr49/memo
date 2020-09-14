@@ -3,23 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://hrhr49.github.io/memo/</loc>
+    <loc>https://hrhr49.github.io/memo/public/</loc>
   </url>
   
   <url>
-    <loc>https://hrhr49.github.io/memo/categories/</loc>
+    <loc>https://hrhr49.github.io/memo/public/categories/</loc>
   </url>
   
   <url>
-    <loc>https://hrhr49.github.io/memo/tags/index/</loc>
+    <loc>https://hrhr49.github.io/memo/public/tags/index/</loc>
   </url>
   
   <url>
-    <loc>https://hrhr49.github.io/memo/post/</loc>
+    <loc>https://hrhr49.github.io/memo/public/post/</loc>
   </url>
   
   <url>
-    <loc>https://hrhr49.github.io/memo/tags/</loc>
+    <loc>https://hrhr49.github.io/memo/public/tags/</loc>
   </url>
   
 </urlset>
