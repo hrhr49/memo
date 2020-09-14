@@ -1,6 +1,8 @@
----
-title: "Posts"
-date: 2020-09-15T00:48:05+09:00
-draft: true
----
++++
+aliases = ["posts", "articles", "blog", "showcase", "docs"]
+title = "Posts"
+author = "hrhr49"
+tags = ["index"]
++++
 
+**posts** の_index.mdです。
