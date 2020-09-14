@@ -1,7 +1,7 @@
 ---
 title: "Hugoの使い方メモ"
 date: 2020-09-14T22:45:24+09:00
-draft: true
+draft: false
 tags:
 - hugo
 ---
