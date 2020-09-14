@@ -9,3 +9,8 @@
 * Hugo: 静的サイトジェネレータ
 * Github Pages: 静的サイトをホスティング
 
+# memo
+技術メモ
+
+
+https://github.com/hrhr49/memo
