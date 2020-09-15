@@ -1,5 +1,3 @@
-# **まだ作成中・・・・！！！**
-
 # 技術メモ
 
 自分の学習メモを整理するためのリポジトリ
@@ -9,8 +7,11 @@
 * Hugo: 静的サイトジェネレータ
 * Github Pages: 静的サイトをホスティング
 
+## TODO
+
+すでにあるメモをこっちにお引越し
+
 # memo
 技術メモ
 
-
-https://github.com/hrhr49/memo
+https://hrhr49.github.io/memo/
