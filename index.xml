@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>hrhr49 blog</title><link>https://hrhr49.github.io/memo/</link><description>Recent content on hrhr49 blog</description><generator>Hugo -- gohugo.io</generator><copyright>Copyright © hrhr49; all rights reserved.</copyright><lastBuildDate>Mon, 14 Sep 2020 22:45:24 +0900</lastBuildDate><atom:link href="https://hrhr49.github.io/memo/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugoの使い方メモ</title><link>https://hrhr49.github.io/memo/posts/hugo/</link><pubDate>Mon, 14 Sep 2020 22:45:24 +0900</pubDate><guid>https://hrhr49.github.io/memo/posts/hugo/</guid><description>Hugoとは 静的サイトジェネレータと呼ばれるソフトウェアの一種 Go言語で作られているため、ビルドが高速らしい この技術ブログもHugoで作成したもの(Clarityテーマを使用) インストール MacやLinuxなら、 homebrew(linuxbrew)でインストールできる。
 1brew install hugo サイトの作成方法 hugo new site {サイト名} で新規にサイトを作成できる。 このコマンドを実行すると、 ここで指定したサイト名と同名のディレクトリが作成される。
-例
-1hugo new site memo テーマの追加 以下のコマンドを実行することで、すでに誰かか作ってくれているテーマを追加できる。
+例)
+1hugo new site memo テーマの追加 以下のコマンドを実行することで、すでに誰かが作ってくれているテーマを追加できる。
 1cd {サイト名} # サイトのディレクトリへ移動 2git init 3git submodule add {テーマがあるリポジトリのURL} themes/{テーマの名前} 追加したテーマを使用するためには、サイトのディレクトリのルートにある config.toml (Hugoの設定ファイル) に以下の内容を追記する。
 1theme = &amp;#34;{テーマ名}&amp;#34; 今回はClarityというテーマを使ったので 以下の手順を行った。
 参考: https://github.com/chipzoller/hugo-clarity#getting-up-and-running
