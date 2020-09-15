@@ -2,7 +2,7 @@
 title: "Vim チートシート"
 date: 2020-09-15T21:09:21+09:00
 draft: true
-tags: ["vim", "cheatsheet"]
+tags: ["Vim", "cheatsheet"]
 ---
 
 # TODO

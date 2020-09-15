@@ -13,7 +13,7 @@ tags: ["tool", "JavaScript"]
 # インストール
 npmでインストールできる。
 
-```
+```sh
 npm -g install textlint
 # プリセットもインストールしておくと良い
 npm -g install textlint-rule-preset-ja-technical-writing
@@ -22,8 +22,7 @@ npm -g install textlint-rule-spellcheck-tech-word
 
 # 使い方
 
-作業ディレクトリで `textlint --init` コマンドを実行すると、設定ファイル `.textlintrc` が
-生成されるので、それに設定を追加する。
+作業ディレクトリで `textlint --init` コマンドを実行すると、設定ファイル `.textlintrc` が生成されるので、それに設定を追加する。
 
 ```json
 {
