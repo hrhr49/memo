@@ -1,14 +1,14 @@
 ---
 title: "Dockerの使い方"
 date: 2020-09-19T17:55:26+09:00
-draft: true
+draft: false
 ---
 
 # Dockerメモ
 
 ## Dockerのインストール
 どうやら、種類がいろいろあってdocker-ceはdockerの公式がサポートしていて、
-docker.ioはubuntuがサポートしているみたい。
+docker.ioはUbuntuがサポートしているみたい。
 docker.ioに関しては以下のようにしてインストールできた。
 
 ```sh
@@ -16,7 +16,7 @@ sudo apt install docker.io
 ```
 
 Dockerに合わせてdocker-composeも一緒にインストールしておくと便利。
-これを入れておくと、コンテナの構成管理などが便利らしい
+これを入れておくと、コンテナの構成管理などが便利らしい。
 
 ```sh
 sudo apt isntall docker-compose
@@ -46,16 +46,16 @@ This message shows that your installation appears to be working correctly.
 
 自分用のdotfiles(各種設定ファイル)をインストールするスクリプトをコンテナ内で実行するための
 Dockerfileを作って動かしてみたのでその時のメモ。
-(インストールスクリプトといっても、各種設定ファイルを、ホームディレクトリなどに
-シンボリックリンク張るだけですが・・・)
+(インストールスクリプトといっても、各種設定ファイルを、
+ホームディレクトリなどにシンボリックリンク張るだけですが...)
 
-以下のURLにおいてある。(注意：もしかしたら、将来的に内容が変わっているかもしれない。)
+以下のURLにおいてある。(注意：将来的に内容が変わっている可能性あり。)
 
 https://github.com/hrhr49/dotfiles/blob/master/Dockerfile
 
 補足：
 Dockerfileを使わずに、Dockerコンテナからイメージを作成することも可能。
-しかし、この方法だと設定に何を行ったかがわかりづらくなってしまうので今回はこの方法は採用しなかった。
+しかし、この方法だと設定に何を行ったかがわかりづらくなってしまうので今回はこの方法を採用しなかった。
 
 1. Dockerfileを作る
 
@@ -189,7 +189,7 @@ docker image build -t {タグ名} .
 docker image build -t hrhr49-dotfiles .
 ```
 
-なお、以下のコマンドでローカルにあるDockerイメージ一覧を確認できる
+なお、以下のコマンドでローカルにあるDockerイメージ一覧を確認できる。
 
 ```
 docker image ls
@@ -204,7 +204,8 @@ docker run --name {コンテナ名} --rm -v {ホスト側のパス}:{コンテ�
 ```
 
 補足：
-上記のオプションは全部必須なわけではないが、よく使うので記載している。詳細は以下の通り
+上記のオプションはよく使うので記載している。
+詳細は以下の通り。
 
 * `--name` : 実行されるコンテナに名前をつける。
 * `--rm` : コンテナの実行が終わったら、自動でコンテナを削除する。これをやらないと、コンテナ実行終了後もずっとゴミが残る。
@@ -219,6 +220,12 @@ docker run --name dotfiles-test --rm -v ${PWD}:/home/user/dotfiles ${DOCKER_TAG_
 
 ## コマンドめも
 
+### よく使うパターン
+
+```sh
+`docker run -it -d -p <ホスト側ポート>:<コンテナ側ポート> -v <ホスト側ディレクトリ>:<コンテナ側ディレクトリ> --name <コンテナ名> <Dockerイメージ名>`
+```
+
 * `docker help` : ヘルプ。多分サブコマンドでも行ける
 
 ### コンテナ操作
@@ -228,22 +235,29 @@ docker run --name dotfiles-test --rm -v ${PWD}:/home/user/dotfiles ${DOCKER_TAG_
     - `--rm` : 実行終了時に自動的に削除する(デフォだと停止してもずっと残る)
     - `--name` : 名前をつける
     - `-P` : ポートをランダムに割り当てる
-    - `-v` : ボリュームを指定(ホスト側とのディレクトリの共有。`-v (ホスト側のディレクトリ):(コンテナ側のディレクトリ`で指定)
-        たとえば、`-v $(pwd)/logs:/share/logs`とするとホスト側の`$(pwd)/logs`がコンテナ側の`/share/logs`と 共通になる。
-    - テンプレ: `docker run -it -d -p <ホスト側ポート>:<コンテナ側ポート> -v <ホスト側ディレクトリ>:<コンテナ側ディレクトリ> --name <コンテナ名> <Dockerイメージ名>`
+    - `-v` : ボリュームを指定することでホスト側とのディレクトリの共有する。以下のように指定する。
+
+```
+-v (ホスト側のディレクトリ):(コンテナ側のディレクトリ)
+```
+
+たとえば、`-v $(pwd)/logs:/share/logs`とするとホスト側の`$(pwd)/logs`がコンテナ側の`/share/logs`と 共通になる。
+
+
 
 * `docker ps` : 動作中のコンテナ一覧
-    - `-a` : 停止しているコンテナも表示(このオプションは常につけたほうがいいかもしれない)
+    - `-a` : 停止しているコンテナも表示(このオプションは常につけたほうがいい)
 
 * `docker container prune` : 停止済みのコンテナを削除
 * `docker container stop $(docker container ls --filter "ancestor=example/echo" -q)` : コンテナ停止
 * `docker port (container-name)` : コンテナが使用しているポートを表示
-* `docker rm (コンテナ名またはID)` : コンテナの削除(動作中のものは`-f`つけないと削除できない）
+* `docker rm (コンテナ名またはID)` : コンテナの削除(動作中のものは`-f`つけないと削除できない)
 * `docker cp (コピー元ディレクトリ) (コピー先ディレクトリ)` : ファイルのコピー。
     ホストのディレクトリの場合は通常のパスを指定。コンテナのディレクトリの場合は`(コンテナ名):(パス)`の形式
     で指定する。
 
-例：
+**例**
+
 ```docker
 docker cp $(pwd)/.vimrc hoge-container:/home/fuga/ # ホスト側のvimrcをhogeコンテナのfugaホームディレクトリへ
 ```
@@ -252,6 +266,7 @@ docker cp $(pwd)/.vimrc hoge-container:/home/fuga/ # ホスト側のvimrcをhoge
 * `docker logs -f (コンテナ名)` : 実行したコンソールログを表示
 
 ### イメージ操作
+
 * `docker image build -t (image-name)[:tag-name] Dockerfileのあるディレクトリ` : イメージのビルド
 * `docker search (keyword)` : Docker Hubでイメージを検索
 * `docker image pull (repository-name)[:tag-name]` : イメージの取得
@@ -262,13 +277,14 @@ docker cp $(pwd)/.vimrc hoge-container:/home/fuga/ # ホスト側のvimrcをhoge
 * `docker pull (イメージ名)` : イメージをDockerHubから落としてくる
 
 ### 全コンテナ削除
+
 * `docker rm $(docker ps -aq)` : ストップ中のを削除
 * `docker rm -f $(docker ps -aq)` : 全部削除(動作中のものも)
 
 ## コンテナからイメージを作成
 ホスト側で以下のコマンドを実行する。
 
-```bash
+```sh
 docker commit (コンテナ名) (作成するイメージ名)
 # 例: docker commit tomcat tomcat-image
 ```
@@ -300,8 +316,11 @@ CMD ["cat", "/hoge.txt"]
 ```
 
 注意: RUNコマンドは各コマンドが前回の実行状態になっているわけではない。
-例えば(`RUN cd /hoge`のあとに`RUN touch fuga.txt`などがあっても想定通りにならない。必要なら`&&`で連結する必要がある。)
-また、コマンドごとに中間的なイメージがキャッシュされることから、あまり変わらない部分を頭に来るようにして、まとめられる箇所はまとめる。
+例えば、`RUN cd /hoge`のあとに`RUN touch fuga.txt`などがあっても想定通りにならない。
+必要なら`&&`で連結する必要がある。
+
+また、コマンドごとに中間的なイメージがキャッシュされる。
+したがって、あまり変わらない部分を頭に配置してまとめておくと良い。
 
 
 # 参考リンク
