@@ -2,6 +2,7 @@
 title: "Dockerの使い方"
 date: 2020-09-19T17:55:26+09:00
 draft: false
+tags: ["docker"]
 ---
 
 # Dockerメモ
@@ -221,6 +222,8 @@ docker run --name dotfiles-test --rm -v ${PWD}:/home/user/dotfiles ${DOCKER_TAG_
 ## コマンドめも
 
 ### よく使うパターン
+
+インタラクティブモードで動かしたいときには `-it` オプションをつける。
 
 ```sh
 `docker run -it -d -p <ホスト側ポート>:<コンテナ側ポート> -v <ホスト側ディレクトリ>:<コンテナ側ディレクトリ> --name <コンテナ名> <Dockerイメージ名>`
