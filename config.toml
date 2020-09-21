@@ -2,7 +2,14 @@
 # if you set it to "/" share icons won't work properly on production
 baseurl = "https://hrhr49.github.io/memo/"  # Include trailing slash
 title = "hrhr49 blog"
+defaultContentLanguage = "ja"
+languageCode = "ja-jp"
+disablePathToLower = true
+hasCJKLanguage = true
 author = "hrhr49"
+pluralizeListTitles = false
+pygmentsUseClasses = true
+pygmentsCodefences = true
 copyright = "Copyright © hrhr49; all rights reserved."
 # canonifyurls = true
 paginate = 10
@@ -19,10 +26,22 @@ theme = "hugo-clarity"
     noClasses = false
     # style = "monokai"
     tabWidth = 2
+  [markup.goldmark.extensions]
+    definitionList = false
+    footnote = false
+    linkify = true
+    strikethrough = true
+    table = true
+    taskList = false
+    typographer = false
+  [markup.goldmark.parser]
+    attribute = true
+    autoHeadingID = true
+    autoHeadingIDType = "github"
   [markup.goldmark.renderer]
     hardWraps = false
-    unsafe = true # change to true to enable inclusion of rawHTML and math functions
-    xhtml = false
+    unsafe = true
+    xHTML = false
 
 [params]
 author = "hrhr49"
