@@ -1,0 +1,21 @@
+<article>
+  <div class="li paper">
+  <a href="{{.Permalink}}">
+    <h4 class="post-title">{{.Title}}</h4>
+  </a>
+  {{.Date.Format "2006-01-02"}}
+    {{ with .Params.tags -}}
+      {{ range . -}}
+        <a class="tags" href="{{ "tags" | relLangURL }}/{{ . | urlize }}/"> {{ . }} </a>
+      {{ end -}}
+    {{- end }}
+    <br />
+    <div class="summary">{{ .Summary }}</div>
+    Categories:
+    {{ with .Params.categories -}}
+      {{ range . -}}
+        <a class="categories" href="{{ "categories" | relLangURL }}/{{ . | urlize }}/"> {{ . }} </a>
+      {{ end -}}
+    {{ end -}}
+  </div>
+</article>

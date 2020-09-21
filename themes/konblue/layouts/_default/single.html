@@ -1,0 +1,10 @@
+{{ define "main" }}
+<div class="post paper">
+    {{ with .Params.tags -}}
+      {{ range . -}}
+        <a class="tags" href="{{ "tags" | relLangURL }}/{{ . | urlize }}/"> {{ . }} </a>
+      {{ end -}}
+    {{- end }}
+  {{ .Content }}
+</div>
+{{ end }}

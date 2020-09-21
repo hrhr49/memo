@@ -1,0 +1,16 @@
+<div class="row">
+<div class="one-half column">
+    {{if .Paginator.HasPrev}}
+    <a href="{{ .Paginator.Prev.URL }}">
+        <span class="pagination">Prev</span>
+    </a>
+    {{end}}
+</div>
+<div class="row" style="text-align:right">
+    {{if .Paginator.HasNext}}
+    <a href="{{ .Paginator.Next.URL }}">
+        <span class="pagination">Next</span>
+    </a>
+    {{end}}
+</div>
+</div>

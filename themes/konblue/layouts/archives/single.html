@@ -1,0 +1,18 @@
+{{ define "main" }}
+<main>
+    {{ $year := 0 }}
+    {{ range (where .Site.RegularPages "Type" "post") }}
+
+    {{ $date := .Date | dateFormat "2006/01"}}
+    {{ if ne $year $date }}
+        <h6 class="date">
+            {{ .Date | dateFormat "2006年 01月"}}
+        </h6>
+    {{ end }}
+    <a href="{{.Permalink}}">
+        <p class="page-title" style="padding-left: 1.7rem; font-size: 1.8rem;">{{.Title}}</p>
+    </a>
+    {{ $year = .Date | dateFormat "2006/01" }}
+    {{ end }}
+</main>
+{{ end }}

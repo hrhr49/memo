@@ -1,0 +1,11 @@
+{{ define "main" }}
+<main>
+    <!-- Ranges through content/posts/*.md -->
+    {{- $paginator := .Paginate (where (where .Site.RegularPages "Type" "posts") ".Params.hiddenfromhomepage" "!=" true) }}
+    {{- range $paginator.Pages -}}
+      {{ .Render "li" }}
+      <br />
+    {{ end -}}
+</main>
+{{ partial "pagination.html" . }}
+{{ end }}
