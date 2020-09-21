@@ -5,7 +5,9 @@ draft: false
 tags: ["font"]
 ---
 
-このブログで使用しているフォントを `Noto Sans CJK JP` に変更したので、その時のメモ。
+~~このブログで使用しているフォントを `Noto Sans CJK JP` に変更したので、その時のメモ。~~
+
+追記：2020/09/22時点だと、Webフォントを使用しないように変更した。
 
 # Noto Sans CJK JPとは
 
@@ -25,15 +27,7 @@ https://www.google.com/get/noto/#mono-mono
 
 ## サブセット化済みのフォント
 
-以下のURLでサブセット化済みの `Noto Sans` が提供されていたので、ありがたく使わせてもらった。
+以下のURLでサブセット化済みの `Noto Sans` が提供されていたので、ありがたく使わせてもらえばOK。
 
 https://github.com/axcelwork/Noto-Snas-subset
-
-# Hugoで使用するには
-
-このブログはHugoというツールを使用して作成している。
-特に、テーマとして [hugo-clarity](https://github.com/chipzoller/hugo-clarity) を使用している。
-そのため、このテーマで使用されているフォントを `Noto Sans` に変更する必要があった。
-
-最終的に、このテーマを色々いじりたかったので、このブログのリポジトリ内にテーマファイルを直置きしてブログ記事と一緒にバージョン管理するようにした(ちゃんとやるならforkするなどして別に管理したほうがいい気もするが...)
 

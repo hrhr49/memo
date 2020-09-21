@@ -5,11 +5,18 @@ draft: false
 tags: ["hugo"]
 ---
 
+## 注意
+
+2020/09/22時点で、テーマをClarityから、自作のものに変更したため、現在はClarityテーマを使用していない。
+しかし、Clarityテーマの導入方法としての情報を残すために、記事の内容は一部そのままにしてある。
+
+
+
 # [Hugo](https://github.com/gohugoio/hugo)とは
 
 * 静的サイトジェネレータと呼ばれるソフトウェアの一種
 * Go言語で作られているため、ビルドが高速らしい
-* この技術ブログもHugoで作成したもの([Clarity](https://github.com/chipzoller/hugo-clarity)テーマを使用)
+* この技術ブログもHugoで作成したもの ~~([Clarity](https://github.com/chipzoller/hugo-clarity)テーマを使用)~~ (自作テーマを使用)
 
 
 ## インストール
