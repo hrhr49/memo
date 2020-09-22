@@ -1,0 +1,23 @@
+<h2>検索</h2>
+<input id="search-input"></input>
+<ul id="search-list">
+  {{ range .Site.RegularPages }}
+  <li>
+    <a href="{{.Permalink}}">
+      {{ .Title }} ({{ .Permalink }})
+    </a>
+  </li>
+  {{ end }}
+</ul>
+ <script>
+   var list = document.getElementById('search-list');
+   var input = document.getElementById('search-input');
+   function filterList(text) {
+     [...list.children].forEach(el => {
+       el.style.display = el.textContent.indexOf(text) >= 0 ? 'block' : 'none';
+     });
+   }
+   document.addEventListener('keyup', e => {
+     filterList(input.value);
+   });
+ </script>
