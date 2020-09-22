@@ -1,0 +1,46 @@
+<!doctype html><html lang=ja-jp><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=5"><title>Graph Easyの使い方 | hrhr49 blog</title><meta name=description content="Graph Easyとは テキストベースで作成したコードから、アスキーアートの状態遷移図とか作れるツール。 こんな感じのコードから...。 1[Alice] -&amp;gt; [Bob] こんな感じ"><meta name=generator content="Hugo 0.74.2"><link rel=canonical href=https://hrhr49.github.io/memo/posts/graph-easy/><link rel=stylesheet href=https://hrhr49.github.io/memo//css/style.css><link rel=stylesheet href=https://hrhr49.github.io/memo//css/syntax.css><link rel=stylesheet href=https://hrhr49.github.io/memo//css/custom.css></head><body><header class=container><div class=row><a href=https://hrhr49.github.io/memo/><h1 class=logo>hrhr49 blog</h1></a></div><div class=row><ul><li style=display:inline-block;padding:5px><a href=/memo/categories/>Categories</a></li><li style=display:inline-block;padding:5px><a href=/memo/search/>Search</a></li><li style=display:inline-block;padding:5px><a href=/memo/tags/>Tags</a></li></ul></div></header><div id=content><div class=container><div class="post paper"><h1 class=page-title>Graph Easyの使い方</h1><div class=date>2020-09-22
+<a class=tags href=/memo/tags/tool/>tool</a>
+<a class=tags href=/memo/tags/CLI/>CLI</a></div><h2 id=graph-easyとは>Graph Easyとは</h2><p>テキストベースで作成したコードから、アスキーアートの状態遷移図とか作れるツール。</p><p>こんな感じのコードから...。</p><div class=highlight><pre class=chroma><code class=language-txt data-lang=txt><span class=ln>1</span>[Alice] -&gt; [Bob]
+</code></pre></div><p>こんな感じのアスキーアートを作れる。</p><div class=highlight><pre class=chroma><code class=language-txt data-lang=txt><span class=ln>1</span>+-------+     +-----+
+<span class=ln>2</span>| Alice | --&gt; | Bob |
+<span class=ln>3</span>+-------+     +-----+
+</code></pre></div><h2 id=インストール>インストール</h2><p>Perlのパッケージマネージャであるcpanを使用してインストールする。</p><div class=highlight><pre class=chroma><code class=language-sh data-lang=sh><span class=ln>1</span>cpan install Graph::Easy
+</code></pre></div><h2 id=使い方>使い方</h2><p>以下のコマンドを実行する。</p><div class=highlight><pre class=chroma><code class=language-sh data-lang=sh><span class=ln>1</span>graph-easy &lt;ソースファイル名&gt;
+</code></pre></div><p>より詳細については、以下の記事が参考になる。</p><p><a href=https://qiita.com/Takeru/items/772218255b9cd92fc05e>Graph::Easyの使い方 - Qiita</a></p><h2 id=残念なところ>残念なところ</h2><p>全角文字も、半角の幅の長さで計算されている。
+そのため、以下のようにアスキーアートが崩れてしまう。</p><div class=highlight><pre class=chroma><code class=language-txt data-lang=txt><span class=ln>1</span>このコードが...
+<span class=ln>2</span>[あ]
+<span class=ln>3</span>
+<span class=ln>4</span>こんなふうになってしまう...
+<span class=ln>5</span>+---+
+<span class=ln>6</span>| あ |
+<span class=ln>7</span>+---+
+</code></pre></div><p>一応、以下の記事で紹介されているパッチを使えば良さそうだけど...正直そこまでやりたくない...。</p><p><a href="http://emasaka.blog65.fc2.com/?m&no=504">本を読む Perlでカラム数単位のlengthとsubstrを作ってみる</a></p><h2 id=暫定の対処>暫定の対処</h2><p>自分の用途としては、Vim上で編集しているときにちょっとしたアスキーアートを作成するために
+使う程度なので、以下のキーマッピングを使うことでとりあえずは満足している。
+(かなりひどい対応だが、今の所それほど問題になっていない)</p><div class=highlight><pre class=chroma><code class=language-vim data-lang=vim><span class=ln>1</span><span class=nx>vnoremap</span> <span class=nx>ge</span> :<span class=nx>s</span><span class=sr>/[^\x01-\x7E]/</span>&amp;<span class=nx>薔</span><span class=sr>/ge&lt;CR&gt; \| gv:!graph-easy&lt;CR&gt; \| :&#39;[,&#39;]s/</span><span class=nx>薔</span><span class=sr>//</span><span class=nx>ge</span><span class=p>&lt;</span><span class=nx>CR</span><span class=p>&gt;</span><span class=err>
+</span></code></pre></div><p>このキーマッピングを使うと以下の動画のように、選択範囲のテキストに対してGrapy::Easyの
+変換を適用できる。(補足：Asciinemaでのフォントの関係上、若干ずれているように見えるが実際にはちゃんとできている。)</p><script id=asciicast-hr6mq96Kg7i89UqlPAjAnFKqT src=https://asciinema.org/a/hr6mq96Kg7i89UqlPAjAnFKqT.js async></script><p>このキーマッピングでは以下のような処理を行っている。</p><ol><li><code>:s/[^\x01-\x7E]/&薔/ge&lt;CR></code> の部分。
+選択範囲の全角文字(<code>[^\x01-\x7E]</code>という正規表現に一致するもの)の直後に「薔」という
+文字を追加して、全角文字の横幅を無理やり文字2つ分にする。
+(なお、「薔」という文字は別に他のものでも構わないが、自分が絶対に使わないであろう文字を暫定で選んだ)</li></ol><div class=highlight><pre class=chroma><code class=language-txt data-lang=txt><span class=ln>1</span>このテキストが
+<span class=ln>2</span>[おはよう]
+<span class=ln>3</span>
+<span class=ln>4</span>以下のように変換される
+<span class=ln>5</span>[お薔は薔よ薔う薔]
+</code></pre></div><ol start=2><li><code>gv:!graph-easy&lt;CR></code> の部分。
+先程選択していた範囲のテキストを標準入力として <code>graph-easy</code> コマンドに与えて、
+その出力結果でもとのテキストを置き換える。</li></ol><div class=highlight><pre class=chroma><code class=language-txt data-lang=txt><span class=ln>1</span>このテキストが
+<span class=ln>2</span>[お薔は薔よ薔う薔]
+<span class=ln>3</span>
+<span class=ln>4</span>以下のように変換される
+<span class=ln>5</span>+----------+
+<span class=ln>6</span>| お薔は薔よ薔う薔 |
+<span class=ln>7</span>+----------+
+</code></pre></div><ol start=3><li><code>:'[,']s/薔//ge&lt;CR></code> の部分。
+「1.」のときに横幅の帳尻合わせのために追加した文字を削除する。</li></ol><div class=highlight><pre class=chroma><code class=language-txt data-lang=txt><span class=ln>1</span>このテキストが
+<span class=ln>2</span>[お薔は薔よ薔う薔]
+<span class=ln>3</span>
+<span class=ln>4</span>以下のように変換される
+<span class=ln>5</span>+----------+
+<span class=ln>6</span>| おはよう |
+<span class=ln>7</span>+----------+
+</code></pre></div><h2 id=参考>参考</h2><ul><li><a href=https://qiita.com/Takeru/items/772218255b9cd92fc05e>Graph::Easyの使い方 - Qiita</a></li><li><a href="http://emasaka.blog65.fc2.com/?m&no=504">本を読む Perlでカラム数単位のlengthとsubstrを作ってみる</a></li></ul><br>Categories:</div></div></div><hr><footer class=container><div class=copyright>Copyright © hrhr49; all rights reserved.</div></footer></body></html>
