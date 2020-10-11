@@ -23,6 +23,21 @@ Dockerに合わせてdocker-composeも一緒にインストールしておくと
 sudo apt isntall docker-compose
 ```
 
+## sudoをつけずに実行するようにする
+
+注意：セキュリティ上のリスクを理解した上で実行する必要あり
+
+dockerグループに対象のユーザを所属させる。
+以下を実行した後に再ログインする。
+
+```sh
+sudo groupadd docker
+sudo gpasswd -a $USER docker
+sudo systemctl restart docker
+```
+
+参考： https://qiita.com/DQNEO/items/da5df074c48b012152ee
+
 ## DockerでHello World
 
 以下のコマンドで `hello-world` のDockerイメージからコンテナを起動できる。
