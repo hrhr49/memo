@@ -4,7 +4,11 @@ docker.ioはUbuntuがサポートしているみたい。
 docker.ioに関しては以下のようにしてインストールできた。</p><div class=highlight><pre class=chroma><code class=language-sh data-lang=sh><span class=ln>1</span>sudo apt install docker.io
 </code></pre></div><p>Dockerに合わせてdocker-composeも一緒にインストールしておくと便利。
 これを入れておくと、コンテナの構成管理などが便利らしい。</p><div class=highlight><pre class=chroma><code class=language-sh data-lang=sh><span class=ln>1</span>sudo apt isntall docker-compose
-</code></pre></div><h2 id=dockerでhello-world>DockerでHello World</h2><p>以下のコマンドで <code>hello-world</code> のDockerイメージからコンテナを起動できる。
+</code></pre></div><h2 id=sudoをつけずに実行するようにする>sudoをつけずに実行するようにする</h2><p>注意：セキュリティ上のリスクを理解した上で実行する必要あり</p><p>dockerグループに対象のユーザを所属させる。
+以下を実行した後に再ログインする。</p><div class=highlight><pre class=chroma><code class=language-sh data-lang=sh><span class=ln>1</span>sudo groupadd docker
+<span class=ln>2</span>sudo gpasswd -a <span class=nv>$USER</span> docker
+<span class=ln>3</span>sudo systemctl restart docker
+</code></pre></div><p>参考： <a href=https://qiita.com/DQNEO/items/da5df074c48b012152ee>https://qiita.com/DQNEO/items/da5df074c48b012152ee</a></p><h2 id=dockerでhello-world>DockerでHello World</h2><p>以下のコマンドで <code>hello-world</code> のDockerイメージからコンテナを起動できる。
 もしこのイメージがまだローカルにダウンロードされていない場合、
 <a href=https://hub.docker.com/>Docker Hub</a>からイメージをダウンロードした後に実行される。</p><div class=highlight><pre class=chroma><code class=language-sh data-lang=sh><span class=ln>1</span>docker run hello-world
 </code></pre></div><p>このコマンドを実行すると以下のようなメッセージが表示される。</p><div class=highlight><pre class=chroma><code class=language-fallback data-lang=fallback><span class=ln>1</span>Hello from Docker!
