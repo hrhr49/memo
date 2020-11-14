@@ -2,6 +2,7 @@
 title: "i3wmでシステムのフォントサイズを変える方法"
 date: 2020-11-02T16:29:40+09:00
 draft: false
+tags: ["i3wm"]
 ---
 
 Google Chromeのブックマークバーなどの文字が小さくて
