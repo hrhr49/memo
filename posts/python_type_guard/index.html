@@ -1,0 +1,19 @@
+<!doctype html><html lang=ja-jp><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=5"><title>TypeguardでPython実行時に型チェック | hrhr49 blog</title><meta name=description content="Typeguardとは Pythonのスクリプト実行時に型アノテーションの情報を使った 型チェックをしてくれるパッケージ インストール pipコマン"><meta name=generator content="Hugo 0.74.2"><link rel=canonical href=https://hrhr49.github.io/memo/posts/python_type_guard/><link rel=stylesheet href=https://hrhr49.github.io/memo//css/style.css><link rel=stylesheet href=https://hrhr49.github.io/memo//css/syntax.css><link rel=stylesheet href=https://hrhr49.github.io/memo//css/custom.css></head><body><header class=container><div class=row><a href=https://hrhr49.github.io/memo/><h1 class=logo>hrhr49 blog</h1></a></div><div class=row><ul><li style=display:inline-block;padding:5px><a href=/memo/categories/>Categories</a></li><li style=display:inline-block;padding:5px><a href=/memo/search/>Search</a></li><li style=display:inline-block;padding:5px><a href=/memo/tags/>Tags</a></li></ul></div></header><div id=content><div class=container><div class="post paper"><h1 class=page-title>TypeguardでPython実行時に型チェック</h1><div class=date>2020-11-15
+<a class=tags href=/memo/tags/python/>python</a>
+<a class=tags href=/memo/tags/typeguard/>typeguard</a></div><h1 id=typeguardとは>Typeguardとは</h1><p>Pythonのスクリプト実行時に型アノテーションの情報を使った
+型チェックをしてくれるパッケージ</p><h2 id=インストール>インストール</h2><p>pipコマンドでインストールできる。</p><div class=highlight><pre class=chroma><code class=language-sh data-lang=sh><span class=ln>1</span>pip install typeguard
+</code></pre></div><h2 id=使い方>使い方</h2><p>自分が使いそうな機能だけ書いておく。他にも便利なのがいろいろあるので
+詳細は<a href=https://typeguard.readthedocs.io/en/latest/userguide.html>User guide — Typeguard 2.10.0.post3 documentation</a>を参照。</p><h3 id=デコレータを使ったやり方>デコレータを使ったやり方</h3><p>以下のように、typecheckedデコレータをつけた関数は実行時に型チェックされる。</p><div class=highlight><pre class=chroma><code class=language-python data-lang=python><span class=ln> 1</span><span class=kn>from</span> <span class=nn>typeguard</span> <span class=kn>import</span> <span class=n>typechecked</span>
+<span class=ln> 2</span>
+<span class=ln> 3</span><span class=c1># typecheckedデコレータがついた関数は、スクリプト実行時に型チェックされる</span>
+<span class=ln> 4</span><span class=nd>@typechecked</span>
+<span class=ln> 5</span><span class=k>def</span> <span class=nf>f</span><span class=p>(</span><span class=n>x</span><span class=p>:</span> <span class=nb>int</span><span class=p>):</span>
+<span class=ln> 6</span>    <span class=k>print</span><span class=p>(</span><span class=n>x</span><span class=p>)</span>
+<span class=ln> 7</span>
+<span class=ln> 8</span><span class=n>f</span><span class=p>(</span><span class=s1>&#39;これは文字列だよ&#39;</span><span class=p>)</span>
+<span class=ln> 9</span><span class=c1># 型があっていない場合、以下のエラーが投げられる。</span>
+<span class=ln>10</span><span class=c1># TypeError: type of argument &#34;x&#34; must be int; got str instead</span>
+</code></pre></div><h3 id=pytestのプラグインとして使う>pytestのプラグインとして使う</h3><p>以下のように、<code>--typeguard-packages</code> にチェックするパッケージ名を指定することで、
+そのパッケージをチェック対象にしてpytestを実行できる。</p><div class=highlight><pre class=chroma><code class=language-sh data-lang=sh><span class=ln>1</span><span class=c1># foo, bar, xyzパッケージをチェック対象にする。</span>
+<span class=ln>2</span>pytest --typeguard-packages<span class=o>=</span>foo.bar,xyz
+</code></pre></div><h2 id=参考>参考</h2><ul><li><a href=https://typeguard.readthedocs.io/en/latest/index.html>公式ドキュメント</a></li><li><a href=https://github.com/agronholm/typeguard>GitHubのリポジトリ</a></li></ul><br>Categories:</div></div></div><hr><footer class=container><div class=copyright>Copyright © hrhr49; all rights reserved.</div></footer></body></html>
