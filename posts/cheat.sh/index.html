@@ -1,0 +1,24 @@
+<!doctype html><html lang=ja-jp><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=5"><title>Cheat.shでコマンドのヘルプを表示 | hrhr49 blog</title><meta name=description content="チートシートを表示してくれるサービス。 以下のコマンドを叩くと、対応するコマンドのチートシートが表示される。 1curl cheat.sh/&amp;lt;コマン"><meta name=generator content="Hugo 0.74.2"><link rel=canonical href=https://hrhr49.github.io/memo/posts/cheat.sh/><link rel=stylesheet href=https://hrhr49.github.io/memo//css/style.css><link rel=stylesheet href=https://hrhr49.github.io/memo//css/syntax.css><link rel=stylesheet href=https://hrhr49.github.io/memo//css/custom.css></head><body><header class=container><div class=row><a href=https://hrhr49.github.io/memo/><h1 class=logo>hrhr49 blog</h1></a></div><div class=row><ul><li style=display:inline-block;padding:5px><a href=/memo/categories/>Categories</a></li><li style=display:inline-block;padding:5px><a href=/memo/search/>Search</a></li><li style=display:inline-block;padding:5px><a href=/memo/tags/>Tags</a></li></ul></div></header><div id=content><div class=container><div class="post paper"><h1 class=page-title>Cheat.shでコマンドのヘルプを表示</h1><div class=date>2020-11-17
+<a class=tags href=/memo/tags/cheat.sh/>cheat.sh</a>
+<a class=tags href=/memo/tags/tool/>tool</a></div><p>チートシートを表示してくれるサービス。</p><p>以下のコマンドを叩くと、対応するコマンドのチートシートが表示される。</p><div class=highlight><pre class=chroma><code class=language-sh data-lang=sh><span class=ln>1</span>curl cheat.sh/&lt;コマンド名&gt;
+</code></pre></div><h2 id=例>例</h2><div class=highlight><pre class=chroma><code class=language-sh data-lang=sh><span class=ln> 1</span>$ curl cheat.sh/ls
+<span class=ln> 2</span>
+<span class=ln> 3</span><span class=c1># ↓ 実行結果</span>
+<span class=ln> 4</span><span class=c1># To display everything in &lt;dir&gt;, excluding hidden files:</span>
+<span class=ln> 5</span>ls &lt;dir&gt;
+<span class=ln> 6</span>
+<span class=ln> 7</span><span class=c1># To display everything in &lt;dir&gt;, including hidden files:</span>
+<span class=ln> 8</span>ls -a &lt;dir&gt;
+<span class=ln> 9</span>
+<span class=ln>10</span><span class=c1># To display all files, along with the size (with unit suffixes) and timestamp</span>
+<span class=ln>11</span>ls -lh &lt;dir&gt;
+<span class=ln>12</span>
+<span class=ln>13</span><span class=c1># To display files, sorted by size:</span>
+<span class=ln>14</span>ls -S &lt;dir&gt;
+<span class=ln>15</span>
+<span class=ln>16</span><span class=c1># To display directories only:</span>
+<span class=ln>17</span>ls -d */ &lt;dir&gt;
+<span class=ln>18</span>
+<span class=ln>19</span><span class=c1># To display directories only, include hidden:</span>
+<span class=ln>20</span>ls -d .*/ */ &lt;dir&gt;
+</code></pre></div><h2 id=似たようなツール>似たようなツール</h2><p>TODO: 気が向いたらメモを作る。</p><ul><li><code>tldr</code>: コマンド</li><li><code>cheat</code>: コマンド</li></ul><br>Categories:</div></div></div><hr><footer class=container><div class=copyright>Copyright © hrhr49; all rights reserved.</div></footer></body></html>
