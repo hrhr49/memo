@@ -32,6 +32,9 @@ Pythonのパッケージをとりあえずまとめておく。
 ### 自然言語
 * gensim: 簡単にトピック分析できるらしい
 
+## データ抽出ツール
+* dateparser: 時間を表す文字列("two weeks ago" or "tomorrow"などもつかえる！)からdatetimeオブジェクトを作成
+
 ## ファイル
 * csvkit: CSVファイルの操作コマンド群
 * csvtotable: csvファイルから、ソートやフィルタ可能ないい感じのHTMLを生成
@@ -48,6 +51,7 @@ Pythonのパッケージをとりあえずまとめておく。
 ## 開発環境
 ### 環境を管理
 * pipenv
+* poetry: こっちだとパッケージの作成とかもできるっぽい
 
 ### エディタ
 * neovim
