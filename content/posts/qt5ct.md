@@ -41,3 +41,11 @@ echo 'export QT_QPA_PLATFORMTHEME="qt5ct"' >> ~/.profile
 
 ちなみに、Gtkベースのアプリについては `LXAppearance` で設定ができたはず
 
+追記:
+
+Gtkと同じスタイルにしたいときには、以下のURLの通り、 `qt5-style-plugins` を使うのが良さそう。
+[Get Qt5 Apps To Use Native Gtk+ Style In Ubuntu Or Debian - Linux Uprising Blog](https://www.linuxuprising.com/2018/05/get-qt5-apps-to-use-native-gtk-style-in.html)
+
+なお、どうやら、QTの環境変数でテーマを設定するやり方だと、Snap, Flatpak, AppImageで実行したアプリには反映されないみたいこともしばしばあるっぽい。Snapでインストールしたkdenliveだとだめだった・・・
+
+
