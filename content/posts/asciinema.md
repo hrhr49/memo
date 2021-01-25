@@ -2,7 +2,7 @@
 title: "Asciinemaの使い方"
 date: 2020-09-20T00:42:49+09:00
 draft: false
-tags: ["Asciinema", "tool", "CLI"]
+tags: ["asciinema", "tool", "CLI"]
 ---
 
 # Asciinemaとは

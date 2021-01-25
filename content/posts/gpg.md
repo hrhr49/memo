@@ -2,7 +2,7 @@
 title: "GPGの秘密鍵や公開鍵のバックアップ方法"
 date: 2020-11-17T20:38:46+09:00
 draft: false
-tags: ["gpg", "tool"]
+tags: ["gpg", "tool", "CLI"]
 ---
 
 いつも忘れるのでメモ。

@@ -2,7 +2,7 @@
 title: "Textlintの使い方"
 date: 2020-09-15T21:52:48+09:00
 draft: false
-tags: ["tool", "JavaScript"]
+tags: ["tool", "javascript"]
 ---
 
 

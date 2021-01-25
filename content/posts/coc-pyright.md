@@ -1,7 +1,8 @@
 ---
-title: "Coc-Pyright"
+title: "Coc-Pyrightを使ってVimでのPythonの入力補完"
 date: 2020-11-29T12:57:59+09:00
 draft: false
+tags: ["vim", "python"]
 ---
 
 [coc-pyright](https://github.com/fannheyward/coc-pyright)のメモ

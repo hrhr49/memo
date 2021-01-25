@@ -2,7 +2,7 @@
 title: "UbuntuでQt5のアプリのフォント設定 Qt5ct"
 date: 2021-01-25T17:32:28+09:00
 draft: false
-tags: ["Ubuntu", "Linux", "tool"]
+tags: ["ubuntu", "linux", "tool"]
 ---
 
 UbuntuでQtベースのアプリを使用していると、どうもフォントが小さくて見づらかったが、解決したのでメモ

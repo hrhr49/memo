@@ -1,7 +1,8 @@
 ---
-title: "Parcellite"
+title: "クリップボードマネージャ Parcellite"
 date: 2020-12-11T07:51:51+09:00
 draft: false
+tags: ["Linux", "tool"]
 ---
 
 クリップボードマネージャ。クリップボードの履歴を管理できる。

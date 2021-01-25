@@ -1,8 +1,8 @@
 ---
-title: "Rgrok"
+title: "rgrokでローカルに立てたサーバーを公開"
 date: 2020-12-20T13:35:39+09:00
 draft: false
-tags: ["tool"]
+tags: ["tool", "web"]
 ---
 
 ローカルで立てたサーバーを外部に簡単に公開できるツール。

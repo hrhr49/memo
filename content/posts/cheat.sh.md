@@ -2,7 +2,7 @@
 title: "Cheat.shでコマンドのヘルプを表示"
 date: 2020-11-17T20:50:07+09:00
 draft: false
-tags: ["cheat.sh", "tool"]
+tags: ["cheat.sh", "tool", "CLI"]
 ---
 
 チートシートを表示してくれるサービス。
