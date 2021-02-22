@@ -75,3 +75,32 @@ OSの起動音がうるさかったので無効化する方法をメモ。
 command + spaceを押したらSpotlightなるアプリが起動する。
 テキストの入力欄でアプリ名を入力し、Returnキーを押すことでアプリの起動ができる。
 他にも、色々機能はあるみたいだけど、とりあえずはアプリのランチャーとウィンドウ切り替えをメインに使っている。
+
+## なんか勝手に日本語が変換されてうざい
+どうやら、IME側での「ライブ変換」という機能が原因みたい。
+そこで、馴染みのあるGoogle日本語入力を入れることにした。
+
+Rosetta 2をインストール後、 `brew install --cask google-japanese-ime` でインストールする。
+
+次に、キーボード環境設定の入力ソースで、不要な項目を削除する。設定後の画面しか残っていないが、デフォルトで入っていた日本語の項目を消したと思う・・・
+
+![mac_google_japanese_ime_config](mac_google_japanese_ime_config.png)
+
+参考: https://genki-wifi.net/googleime
+
+ちなみに、ウィンドウのスクリーンショットを撮ってクリップボードに入れるには以下のキーバインドを使う
+
+Shift + Command + 4 + space + control
+
+参考: https://gori.me/mac/mac-tips/103765
+
+### Google日本語入力のキーバインドがUbuntuのときと違う
+
+Ubuntuのときはctrl + tとかctrl + iでカタカナや半角英数への変換をしていたが、どうもMacだとキーバインドが違うっぽい。
+
+* カタカナへ変換: `ctrl + k`
+* 半角英数へ変換: `ctrl + ;`
+
+注意:
+* 私の環境はJIS配列のキーボードです
+* Spotlightだと `ctrl + k` が効かないっぽい？
