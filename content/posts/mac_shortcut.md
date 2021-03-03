@@ -10,6 +10,8 @@ tags: ["mac"]
 * `Cmd + q`: アプリを終了
 * `Cmd + Ctrl + f`: ウィンドウ最大化切り替え
 * `Cmd + Space`: Spotlightの検索フィールドを表示
+* `Cmd + Tab`: アプリ間を切り替え
+* `Cmd + バッククォート`: 同一アプリでのウィンドウ切り替え
 
 
 ## Google日本語入力
