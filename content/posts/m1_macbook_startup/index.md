@@ -62,6 +62,11 @@ iTermは `brwe install --cask iterm2` でインストールできる。
 1. command + `,` で設定ウィンドウを開く
 2. Profiles -> Terminal -> Silcence bellを有効化
 
+### フォントの拡大ショートカット `Cmd + Shift + ;` を使えるようにする。
+
+以下のURLを参照。
+[iTermでcmd+shift+;でフォントサイズが拡大できない - Qiita](https://qiita.com/kanari3/items/d3e96dfae77ecdc5144f)
+
 
 ## OSの起動音がうざい
 OSの起動音がうるさかったので無効化する方法をメモ。
