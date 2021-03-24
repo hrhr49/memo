@@ -42,6 +42,14 @@ tags: ["mac", "shortcut"]
 
 * `Shift + Cmd + v`: Clipyで貼り付ける候補選択。
 
+## Chrome
+
+* `Cmd + w`: タブを閉じる
+* `Shift + Cmd + w`: ウィンドウを閉じる
+* `Shift + Cmd + n`: シークレットウィンドウを開く
+* `Cmd + l`: アドレスバーにフォーカス
+* `Option + Cmd + l`: ダウンロード画面を開く
+
 ## 参考
 * [Mac のキーボードショートカット - Apple サポート](https://support.apple.com/ja-jp/HT201236)
 * [【macOS BigSur】キーボードショートカットを使いこなしたい方へ - 脳無](https://irilyuu.com/mac-ios/mac/keyboard-shortcut/)
