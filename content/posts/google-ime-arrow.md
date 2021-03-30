@@ -2,6 +2,7 @@
 title: "Google日本語入力で矢印を入力する便利機能" 
 date: 2021-03-29T13:44:01+09:00
 draft: false
+tags: ["google-ime", "tool"]
 ---
 
 何気なくネットサーフィンしていたらGoogle 日本語入力の便利機能を見つけたのでメモ。
