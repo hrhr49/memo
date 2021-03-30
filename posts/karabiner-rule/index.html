@@ -1,0 +1,52 @@
+<!doctype html><html lang=ja-jp><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=5"><title>Karabinerの設定ファイルメモ | hrhr49 blog</title><meta name=description content="Karabinerで設定ファイルを作ったのでメモ やったこと こんな感じの設定を作った。ctrl + m で return に、 ctrl + [ で esc に割り当てるだけの単純なキ"><meta name=generator content="Hugo 0.74.2"><link rel=canonical href=https://hrhr49.github.io/memo/posts/karabiner-rule/><link rel=stylesheet href=https://hrhr49.github.io/memo//css/style.css><link rel=stylesheet href=https://hrhr49.github.io/memo//css/syntax.css><link rel=stylesheet href=https://hrhr49.github.io/memo//css/custom.css></head><body><header class=container><div class=row><a href=https://hrhr49.github.io/memo/><h1 class=logo>hrhr49 blog</h1></a></div><div class=row><ul><li style=display:inline-block;padding:5px><a href=/memo/categories/>Categories</a></li><li style=display:inline-block;padding:5px><a href=/memo/search/>Search</a></li><li style=display:inline-block;padding:5px><a href=/memo/tags/>Tags</a></li></ul></div></header><div id=content><div class=container><div class="post paper"><h1 class=page-title>Karabinerの設定ファイルメモ</h1><div class=date>2021-03-30
+<a class=tags href=/memo/tags/mac/>mac</a>
+<a class=tags href=/memo/tags/tool/>tool</a>
+<a class=tags href=/memo/tags/karabiner/>karabiner</a></div><p>Karabinerで設定ファイルを作ったのでメモ</p><h2 id=やったこと>やったこと</h2><p>こんな感じの設定を作った。<code>ctrl + m</code> で <code>return</code> に、 <code>ctrl + [</code> で <code>esc</code> に割り当てるだけの単純なキー割り当て。</p><p><img src=img/karabiner-complex-modifications.png alt=karabiner-complex-modifications></p><h2 id=つまづいたこと>つまづいたこと</h2><p>JISキーボードとUSキーボードで、 <code>key_code</code> の内容が違う。
+JISキーボードで <code>[</code> キーに割当てを行いたい場合は、 <code>key_code</code> は <code>close_bracket</code> じゃないといけない。</p><p><a href=https://qiita.com/akrolayer/items/3cd4b940b367dbb3544f>Karabiner-ElementsでのJIS・USのキーコード対応表 - Qiita</a></p><h2 id=手順>手順</h2><ol><li><p><code>~/.config/karabiner/assets/complex_modifications/</code> 内に好きな名前のJSONファイルを作る</p></li><li><p>上述のJSONファイルに設定を書く</p></li></ol><p>今回の例</p><div class=highlight><pre class=chroma><code class=language-json data-lang=json><span class=ln> 1</span><span class=p>{</span>
+<span class=ln> 2</span>  <span class=nt>&#34;title&#34;</span><span class=p>:</span> <span class=s2>&#34;自分用&#34;</span><span class=p>,</span>
+<span class=ln> 3</span>  <span class=nt>&#34;rules&#34;</span><span class=p>:</span> <span class=p>[</span>
+<span class=ln> 4</span>    <span class=p>{</span>
+<span class=ln> 5</span>      <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl-M を return に変換&#34;</span><span class=p>,</span>
+<span class=ln> 6</span>      <span class=nt>&#34;manipulators&#34;</span><span class=p>:</span> <span class=p>[</span>
+<span class=ln> 7</span>        <span class=p>{</span>
+<span class=ln> 8</span>          <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;basic&#34;</span><span class=p>,</span>
+<span class=ln> 9</span>          <span class=nt>&#34;from&#34;</span><span class=p>:</span> <span class=p>{</span>
+<span class=ln>10</span>            <span class=nt>&#34;key_code&#34;</span><span class=p>:</span> <span class=s2>&#34;m&#34;</span><span class=p>,</span>
+<span class=ln>11</span>            <span class=nt>&#34;modifiers&#34;</span><span class=p>:</span> <span class=p>{</span>
+<span class=ln>12</span>              <span class=nt>&#34;mandatory&#34;</span><span class=p>:</span> <span class=p>[</span>
+<span class=ln>13</span>                <span class=s2>&#34;control&#34;</span>
+<span class=ln>14</span>              <span class=p>]</span>
+<span class=ln>15</span>            <span class=p>}</span>
+<span class=ln>16</span>          <span class=p>},</span>
+<span class=ln>17</span>          <span class=nt>&#34;to&#34;</span><span class=p>:</span> <span class=p>[</span>
+<span class=ln>18</span>            <span class=p>{</span>
+<span class=ln>19</span>              <span class=nt>&#34;key_code&#34;</span><span class=p>:</span> <span class=s2>&#34;return_or_enter&#34;</span>
+<span class=ln>20</span>            <span class=p>}</span>
+<span class=ln>21</span>          <span class=p>]</span>
+<span class=ln>22</span>        <span class=p>}</span>
+<span class=ln>23</span>      <span class=p>]</span>
+<span class=ln>24</span>    <span class=p>},</span>
+<span class=ln>25</span>    <span class=p>{</span>
+<span class=ln>26</span>      <span class=nt>&#34;description&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl-[ を escに変換&#34;</span><span class=p>,</span>
+<span class=ln>27</span>      <span class=nt>&#34;manipulators&#34;</span><span class=p>:</span> <span class=p>[</span>
+<span class=ln>28</span>        <span class=p>{</span>
+<span class=ln>29</span>          <span class=nt>&#34;type&#34;</span><span class=p>:</span> <span class=s2>&#34;basic&#34;</span><span class=p>,</span>
+<span class=ln>30</span>          <span class=nt>&#34;from&#34;</span><span class=p>:</span> <span class=p>{</span>
+<span class=ln>31</span>            <span class=nt>&#34;key_code&#34;</span><span class=p>:</span> <span class=s2>&#34;close_bracket&#34;</span><span class=p>,</span>
+<span class=ln>32</span>            <span class=nt>&#34;modifiers&#34;</span><span class=p>:</span> <span class=p>{</span>
+<span class=ln>33</span>              <span class=nt>&#34;mandatory&#34;</span><span class=p>:</span> <span class=p>[</span>
+<span class=ln>34</span>                <span class=s2>&#34;control&#34;</span>
+<span class=ln>35</span>              <span class=p>]</span>
+<span class=ln>36</span>            <span class=p>}</span>
+<span class=ln>37</span>          <span class=p>},</span>
+<span class=ln>38</span>          <span class=nt>&#34;to&#34;</span><span class=p>:</span> <span class=p>[</span>
+<span class=ln>39</span>            <span class=p>{</span>
+<span class=ln>40</span>              <span class=nt>&#34;key_code&#34;</span><span class=p>:</span> <span class=s2>&#34;escape&#34;</span>
+<span class=ln>41</span>            <span class=p>}</span>
+<span class=ln>42</span>          <span class=p>]</span>
+<span class=ln>43</span>        <span class=p>}</span>
+<span class=ln>44</span>      <span class=p>]</span>
+<span class=ln>45</span>    <span class=p>}</span>
+<span class=ln>46</span>  <span class=p>]</span>
+<span class=ln>47</span><span class=p>}</span>
+</code></pre></div><ol start=3><li>Karabinerの設定画面の「Complex modifications」タブの左下にある「Add rule」ボタンを押すと、JSONファイルの設定内容を選べるようになるので、対応する「Enable」ボタンをクリックする。</li></ol><h2 id=参考>参考</h2><p>以下のページのほうがより親切に記載されている。</p><ul><li><a href=https://chusotsu-program.com/karabiner-escape/>MacbookのEscapeキーが押しにくいのでKarabiner-Elementsで別のキーにバインドしてみた</a></li><li><a href=https://qiita.com/akrolayer/items/3cd4b940b367dbb3544f>Karabiner-ElementsでのJIS・USのキーコード対応表 - Qiita</a></li></ul><br>Categories:</div></div></div><hr><footer class=container><div class=copyright>Copyright © hrhr49; all rights reserved.</div></footer></body></html>
