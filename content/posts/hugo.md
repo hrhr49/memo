@@ -5,6 +5,16 @@ draft: false
 tags: ["hugo"]
 ---
 
+## よく使うコマンド
+
+```sh
+# posts/ にポストを作成
+hugo new posts/{ポスト名}.md
+
+# 確認用のサーバーを立てる
+hugo serve -D
+```
+
 ## 注意
 
 2020/09/22時点で、テーマをClarityから、自作のものに変更したため、現在はClarityテーマを使用していない。
