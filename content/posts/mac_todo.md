@@ -15,4 +15,4 @@ Mac OSで未だに未解決 or 代替案が見つかっていない問題をま�
     - キー操作だけでウィンドウを画面半分サイズにリサイズ: Rectangle
     - 特定アプリへの切り替え・ウィンドウのフォーカス: Snap
     - スクショをその場で編集して、クリップボードに入れる: Skitch
-    - Ctrl + f/b/a/e などのEmacsライクなキー操作をどこでも使えるようにする: Karabiner
+    - Ctrl + f/b/a/e などのEmacsライクなキー操作をどこでも使えるようにする: Karabiner Elements
